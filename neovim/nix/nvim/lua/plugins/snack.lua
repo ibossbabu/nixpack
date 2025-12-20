@@ -8,6 +8,8 @@ return {
       { "<leader>sl", function() Snacks.picker.grep() end, desc = "Grep" },
       { "<leader>sr", function() Snacks.picker.resume() end, desc = "Resume" },
       { "<leader>so", function() Snacks.picker.recent() end, desc = "Recent" },
+      --ZEN mode
+      { "<leader>ls", function() Snacks.zen() end, desc = "ZEN" },
     },
   },
 }
