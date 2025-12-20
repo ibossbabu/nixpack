@@ -43,6 +43,11 @@
         nix profile upgrade --all
       '';
     in {
+       packages = {
+          install = install;
+          update = update;
+          default = install;
+        };
       apps = {
         install = {
           type = "app";
