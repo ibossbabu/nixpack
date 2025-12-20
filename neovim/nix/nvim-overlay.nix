@@ -25,7 +25,7 @@
     };
     treesitter =
       vimPlugins.nvim-treesitter.withPlugins
-      (p: [p.bash p.nix p.go]);
+      (p: [p.bash p.nix p.haskell p.make]);
     mellow-nvim = buildVimPlugin inputs.mellow-theme "mellow-theme";
   in
     with vimPlugins; [
