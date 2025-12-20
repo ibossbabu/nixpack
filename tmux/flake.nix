@@ -20,6 +20,7 @@
         };
       in {
         packages = {
+          default = tmuxModule.package;
           tmux = tmuxModule.package;
         };
         apps = {
