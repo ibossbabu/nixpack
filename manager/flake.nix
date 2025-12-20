@@ -18,6 +18,7 @@
       targets = [
         "$HOME/nixpack/neovim"
         "$HOME/nixpack/manager"
+        "$HOME/nixpack/tmux"
       ];
 
       install = pkgs.writeShellScript "install-nix-flakes" ''
