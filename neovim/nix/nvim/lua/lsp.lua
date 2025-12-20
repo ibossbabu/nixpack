@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "clangd", "nil_ls" })
+vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "hls" })
 -- LSP Setup
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -7,20 +7,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local c = vim.lsp.get_client_by_id(args.data.client_id)
     if not c then return end
     local opts = { buffer = args.buf, silent = true }
-    -- Disable formatting && Using gaurd.nvim instead
-  --   local supported_filetypes = { "lua", "c", "cpp", }
+    -- formatting && Using gaurd.nvim
+    local supported_filetypes = { "lua", }
 
-  --   if not c:supports_method('textDocument/willSaveWaitUntil')
-  --       and c:supports_method('textDocument/formatting')
-  --       and vim.tbl_contains(supported_filetypes, vim.bo.filetype) then
-  --     vim.api.nvim_create_autocmd('BufWritePre', {
-  --       group = vim.api.nvim_create_augroup("UserLspConfig", { clear = false }),
-  --       buffer = args.buf,
-  --       callback = function()
-  --         vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
-  --       end,
-  --     })
-  --   end
+    if not c:supports_method('textDocument/willSaveWaitUntil')
+        and c:supports_method('textDocument/formatting')
+        and vim.tbl_contains(supported_filetypes, vim.bo.filetype) then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = vim.api.nvim_create_augroup("UserLspConfig", { clear = false }),
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
+        end,
+      })
+    end
 
     -- Standard LSP Keymaps
     vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end,
