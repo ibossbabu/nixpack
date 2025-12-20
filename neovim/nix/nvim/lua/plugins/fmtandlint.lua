@@ -15,7 +15,8 @@ return {
     local original_executable = vim.fn.executable
 
     vim.fn.executable = function(cmd)
-      if cmd == 'clang-format' or cmd == 'clang-tidy' then
+      if cmd == 'clang-format' or cmd == 'clang-tidy'
+          or cmd == 'ormolu' or cmd == 'hlint' then
         return 1 -- Pretend they exist
       end
       return original_executable(cmd)
@@ -39,8 +40,8 @@ return {
       stdin = true,
     }):lint({
       cmd = "clang-tidy",
-      args = { "--quiet" ,
-      "--checks=-clang-diagnostic-format-security,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling"
+      args = { "--quiet",
+        "--checks=-clang-diagnostic-format-security,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling"
       },
       fname = true,
       parse = lint.from_regex({
@@ -53,6 +54,44 @@ return {
           note = lint.severities.style,
         },
       }),
+    })
+
+    -- Haskell ==>
+    local severities = {
+      suggestion = lint.severities.info,
+      warning = lint.severities.warning,
+      error = lint.severities
+          .error,
+    }
+    ft('hs'):fmt({
+      cmd = 'ormolu',
+      args = { '--color', 'never', '--stdin-input-file' },
+      stdin = true,
+      fname = true,
+    }):lint({
+      cmd = 'hlint',
+      args = { '--json', '--no-exit-code' },
+      fname = true,
+      parse = function(result, bufnr)
+        local diags = {}
+
+        result = result ~= '' and vim.json.decode(result) or {}
+        for _, d in ipairs(result) do
+          table.insert(
+            diags,
+            lint.diag_fmt(
+              bufnr,
+              d.startLine > 0 and d.startLine - 1 or 0,
+              d.startLine > 0 and d.startColumn - 1 or 0,
+              d.hint .. (d.to ~= vim.NIL and (': ' .. d.to) or ''),
+              severities[d.severity:lower()],
+              'hlint'
+            )
+          )
+        end
+
+        return diags
+      end,
     })
 
     -- Restore original function
