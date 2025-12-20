@@ -19,7 +19,7 @@
           inherit inputs pkgs;
         };
       in {
-        package = {
+        packages = {
           tmux = tmuxModule.package;
         };
         apps = {
