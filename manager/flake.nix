@@ -17,7 +17,6 @@
 
       targets = [
         "$HOME/nixpack/neovim"
-        "$HOME/nixpack/manager"
         "$HOME/nixpack/tmux"
       ];
 
