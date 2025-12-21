@@ -18,6 +18,22 @@
         "type": "github"
       }
     },
+    "haskell-indent": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744720362,
+        "narHash": "sha256-DMQRtuEm/L6WWDhdfCJAfik4BzUCb00rGBw+m06w9C0=",
+        "owner": "itchyny",
+        "repo": "vim-haskell-indent",
+        "rev": "67d33a27c3f31f0a31980e532abd6c0dda4d238d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "itchyny",
+        "repo": "vim-haskell-indent",
+        "type": "github"
+      }
+    },
     "mellow-theme": {
       "flake": false,
       "locked": {
@@ -53,6 +69,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "haskell-indent": "haskell-indent",
         "mellow-theme": "mellow-theme",
         "nixpkgs": "nixpkgs"
       }
