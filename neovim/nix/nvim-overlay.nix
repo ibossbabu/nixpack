@@ -27,6 +27,7 @@
       vimPlugins.nvim-treesitter.withPlugins
       (p: [p.bash p.nix p.haskell p.make]);
     mellow-nvim = buildVimPlugin inputs.mellow-theme "mellow-theme";
+    haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
   in
     with vimPlugins; [
       # It's technically possible to provide lua configuration for
@@ -49,6 +50,7 @@
       (opt oil-nvim)
       #(opt catppuccin-nvim)
       (opt mellow-nvim)
+      (start haskell-indent)
       #(opt mellifluous-nvim)
       (opt vim-tmux-navigator)
       (opt guard-nvim)

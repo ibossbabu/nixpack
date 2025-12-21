@@ -8,6 +8,10 @@
       url = "github:mellow-theme/mellow.nvim";
       flake = false;
     };
+    haskell-indent = {
+      url = "github:itchyny/vim-haskell-indent";
+      flake = false;
+    };
     #neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
