@@ -34,3 +34,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end, 10)
   end,
 })
+-- Transparent background
+vim.cmd [[hi Normal guibg=NONE]]
+vim.cmd [[hi NormalNC guibg=NONE]]
