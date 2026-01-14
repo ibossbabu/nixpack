@@ -51,6 +51,7 @@
       #(opt catppuccin-nvim)
       (opt mellow-nvim)
       (start haskell-indent)
+      (opt base16-nvim)
       #(opt mellifluous-nvim)
       (opt vim-tmux-navigator)
       (opt guard-nvim)

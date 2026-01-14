@@ -37,3 +37,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 -- Transparent background
 vim.cmd [[hi Normal guibg=NONE]]
 vim.cmd [[hi NormalNC guibg=NONE]]
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#1a1a1a' })
+vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#808080', bold = false })
+
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#606060' })
+vim.api.nvim_set_hl(0, 'CursorLineSign', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'Visual', { bg = '#2a2a2a', fg = 'NONE' })
