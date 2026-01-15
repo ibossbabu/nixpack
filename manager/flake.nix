@@ -20,6 +20,7 @@
         "nixpkgs#feh"
         "nixpkgs#firefox"
         "nixpkgs#fzf"
+        "nixpkgs#gitu"
         "nixpkgs#lemonbar"
         "nixpkgs#noto-fonts"
         "nixpkgs#noto-fonts-cjk-sans"
@@ -42,7 +43,7 @@
         TARGETS=(${builtins.concatStringsSep " " targets})
         for TARGET in "''${TARGETS[@]}"; do
           eval TARGET_EXPANDED="$TARGET"
-          [ -d "$TARGET_EXPANDED" ] && nix profile install "path:$TARGET_EXPANDED"
+          [ -d "$TARGET_EXPANDED" ] && nix profile add "path:$TARGET_EXPANDED"
         done
         ${pkgs.lib.optionalString pkgs.stdenv.isLinux ''
           LINUX_PKGS=(${builtins.concatStringsSep " " linuxPkgs})
