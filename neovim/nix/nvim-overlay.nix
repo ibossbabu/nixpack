@@ -25,7 +25,7 @@
     };
     treesitter =
       vimPlugins.nvim-treesitter.withPlugins
-      (p: [p.bash p.nix p.haskell p.make]);
+      (p: [p.bash p.nix p.haskell p.make p.ocaml p.ocaml_interface p.ocamllex]);
     mellow-nvim = buildVimPlugin inputs.mellow-theme "mellow-theme";
     haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
   in

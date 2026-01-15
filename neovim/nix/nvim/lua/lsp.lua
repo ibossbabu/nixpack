@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "hls" })
+vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "hls", "ocamllsp" })
 -- LSP Setup
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),

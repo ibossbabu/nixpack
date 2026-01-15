@@ -33,6 +33,14 @@ return {
       stdin = true,
     })
 
+    -- Ocaml ==>
+    ft("ocaml", "ocamlinterface", "menhir", "ocamllex"):fmt({
+      cmd = "ocamlformat",
+      stdin = true,
+      fname = true,
+      args = { "--name", "%" },
+    })
+
     -- C ==>
     ft('c'):fmt({
       cmd = "clang-format",
@@ -63,7 +71,7 @@ return {
       error = lint.severities
           .error,
     }
-    ft('hs'):fmt({
+    ft('haskell'):fmt({
       cmd = 'ormolu',
       args = { '--color', 'never', '--stdin-input-file' },
       stdin = true,
