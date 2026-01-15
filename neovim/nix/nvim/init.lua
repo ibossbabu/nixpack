@@ -47,3 +47,4 @@ vim.api.nvim_set_hl(0, 'Visual', { bg = '#2a2a2a', fg = 'NONE' })
 vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE', fg = '#abb2bf' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#0a0a0a' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#0a0a0a', fg = '#6c7891' })
+vim.g.loaded_matchparen = 1
