@@ -13,6 +13,7 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {inherit system;};
       linuxPkgs = [
+        "nixpkgs#bitwarden-cli"
         "nixpkgs#btop"
         "nixpkgs#direnv"
         "nixpkgs#fastfetch"
