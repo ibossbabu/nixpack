@@ -13,7 +13,6 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {inherit system;};
       linuxPkgs = [
-        "nixpkgs#bitwarden-cli"
         "nixpkgs#btop"
         "nixpkgs#direnv"
         "nixpkgs#fastfetch"
@@ -22,6 +21,7 @@
         "nixpkgs#firefox"
         "nixpkgs#fzf"
         "nixpkgs#gitu"
+        "nixpkgs#jq"
         "nixpkgs#lemonbar"
         "nixpkgs#noto-fonts"
         "nixpkgs#noto-fonts-cjk-sans"
@@ -38,6 +38,7 @@
       targets = [
         "$HOME/nixpack/neovim"
         "$HOME/nixpack/tmux"
+        "$HOME/nixpack/ytsurf"
       ];
       install = pkgs.writeShellScript "install-nix-flakes" ''
         #!/usr/bin/env bash
