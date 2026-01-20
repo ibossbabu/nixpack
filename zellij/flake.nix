@@ -17,7 +17,7 @@
     ...
   } @ inputs: let
     inherit (nixpkgs.lib) attrValues;
-    overlays = with inputs;[
+    overlays = with inputs; [
       (final: prev: {
         zjstatus = zjstatus.packages.${prev.stdenv.hostPlatform.system}.default;
         room = room.packages.${prev.stdenv.hostPlatform.system}.default;
@@ -30,14 +30,15 @@
           inherit system;
           overlays = overlays;
         };
-        #--layout ${./layout.kdl}
         zellij = pkgs.writeShellApplication {
           name = "zellij";
           runtimeInputs = [pkgs.zellij pkgs.zjstatus pkgs.room];
           text = ''
             export ZJSTATUS_PLUGIN_PATH="${pkgs.zjstatus}"
             export ROOM_PLUGIN_PATH="${pkgs.room}/lib/zellij/plugins/room.wasm"
+            export ZELLIJ_CONFIG_DIR="$HOME/nixpack/zellij/config.kdl"
             exec zellij --config ${./config.kdl}
+            exec zellij --layout ${./layout_file.kdl}
           '';
         };
       in {
