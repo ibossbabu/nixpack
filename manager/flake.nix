@@ -23,9 +23,6 @@
         "nixpkgs#gitu"
         "nixpkgs#jq"
         "nixpkgs#lemonbar"
-        "nixpkgs#noto-fonts"
-        "nixpkgs#noto-fonts-cjk-sans"
-        "nixpkgs#noto-fonts-color-emoji"
         "nixpkgs#pavucontrol"
         "nixpkgs#ripgrep"
         "nixpkgs#rofi"
@@ -37,8 +34,7 @@
       ];
       targets = [
         "$HOME/nixpack/neovim"
-        "$HOME/nixpack/tmux"
-        "$HOME/nixpack/ytsurf"
+        "$HOME/nixpack/zellij"
       ];
       install = pkgs.writeShellScript "install-nix-flakes" ''
         #!/usr/bin/env bash
