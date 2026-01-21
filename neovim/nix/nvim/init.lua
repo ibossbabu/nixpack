@@ -4,6 +4,7 @@ require("options")
 require("keymaps")
 require("quickswap")
 require("lsp")
+require("ts_lint")
 
 require("lze").load {
   { "nvim-surround",
