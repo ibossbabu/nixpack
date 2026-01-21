@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "hls", "ocamllsp" })
+vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "hls", "ocamllsp", "ts_ls" })
 -- LSP Setup
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if not c then return end
     local opts = { buffer = args.buf, silent = true }
     -- formatting && Using gaurd.nvim
-    local supported_filetypes = { "lua", }
+    local supported_filetypes = { "lua", "typescript" }
 
     if not c:supports_method('textDocument/willSaveWaitUntil')
         and c:supports_method('textDocument/formatting')

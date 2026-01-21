@@ -16,7 +16,8 @@ return {
 
     vim.fn.executable = function(cmd)
       if cmd == 'clang-format' or cmd == 'clang-tidy'
-          or cmd == 'ormolu' or cmd == 'hlint' then
+          or cmd == 'ormolu' or cmd == 'hlint'
+          or cmd == 'ocamlformat' or cmd == 'bunx' then
         return 1 -- Pretend they exist
       end
       return original_executable(cmd)
@@ -41,6 +42,41 @@ return {
       args = { "--name", "%" },
     })
 
+    -- TypeScript ==>
+    ft("typescript", "typescriptreact", "javascript", "javascriptreact"):lint({
+      cmd = "bunx",
+      args = { "oxlint", "--type-aware", "--format", "json" },
+      fname = true,
+      parse = lint.from_json({
+        get_diagnostics = function(output)
+          local decoded = vim.json.decode(output)
+          return decoded.diagnostics or {}
+        end,
+        attributes = {
+          lnum = function(d)
+            return d.labels and d.labels[1] and d.labels[1].span.line or 1
+          end,
+          col = function(d)
+            return d.labels and d.labels[1] and d.labels[1].span.column or 1
+          end,
+          -- message = "message",
+          message = function(d)
+            local msg = d.message
+            if d.help and d.help ~= "" then
+              msg = msg .. "\n" .. d.help
+            end
+            return msg
+          end,
+          --code = "code",
+          severity = "severity",
+        },
+        severities = {
+          error = lint.severities.error,
+          warning = lint.severities.warn,
+        },
+        source = "oxlint",
+      }),
+    })
     -- C ==>
     ft('c'):fmt({
       cmd = "clang-format",
