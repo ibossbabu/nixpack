@@ -28,9 +28,30 @@ layout {
             }
         }
     }
-tab name="Main" {
-        pane split_direction="vertical" {
+  tab name="Main" {
             pane
+        }
+    swap_tiled_layout name="vertical" {
+        tab {
+            pane split_direction="vertical" {
+                children
+            }
+        }
+    }
+
+    swap_tiled_layout name="horizontal" {
+        tab {
+            pane split_direction="horizontal" {
+                children
+            }
+        }
+    }
+
+    swap_tiled_layout name="stacked" {
+        tab {
+            pane stacked=true {
+                children
+            }
         }
     }
 }
