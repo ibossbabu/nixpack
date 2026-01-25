@@ -4,7 +4,6 @@ require("options")
 require("keymaps")
 require("quickswap")
 require("lsp")
-require("ts_lint")
 
 require("lze").load {
   { "nvim-surround",
@@ -19,11 +18,17 @@ require("lze").load {
     end,
   },
   { import = "plugins/snack" },
-  { import = "plugins/tmux" },
-  { import = "plugins/fmtandlint" },
+  { import = "plugins/conform" },
   { import = "plugins/completion" },
   { import = "plugins/oil" },
   { import = "plugins/mell" },
+  {
+    "custom-linters",
+    ft = { "typescript", "typescriptreact", "c", "cpp", "haskell" },
+    after = function()
+      require("linters.lint").setup_all()
+    end,
+  },
 }
 --vim.lsp.enable({ "lua-ls", "nixd" })
 vim.api.nvim_create_autocmd("VimEnter", {

@@ -4,10 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    mellow-theme = {
-      url = "github:mellow-theme/mellow.nvim";
-      flake = false;
-    };
+   #mellow-theme = {
+   #  url = "github:mellow-theme/mellow.nvim";
+   #  flake = false;
+   #};
     haskell-indent = {
       url = "github:itchyny/vim-haskell-indent";
       flake = false;

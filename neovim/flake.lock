@@ -34,29 +34,13 @@
         "type": "github"
       }
     },
-    "mellow-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1756790858,
-        "narHash": "sha256-A+2yTvhrug7hZBcoqfwIuuxz41xUPKZ7zqAwujeHTkI=",
-        "owner": "mellow-theme",
-        "repo": "mellow.nvim",
-        "rev": "5cd188489bcc7eb512f0a30581ad972070f8e5cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mellow-theme",
-        "repo": "mellow.nvim",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1768875095,
-        "narHash": "sha256-dYP3DjiL7oIiiq3H65tGIXXIT1Waiadmv93JS0sS+8A=",
+        "lastModified": 1769298235,
+        "narHash": "sha256-6LYNeTHX7779CiR4oqhG4C6u2NIUeZUOfITHgywaRlQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ed142ab1b3a092c4d149245d0c4126a5d7ea00b0",
+        "rev": "26b0093bc977081dc7653175a3fadab11e07bed7",
         "type": "github"
       },
       "original": {
@@ -70,7 +54,6 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "haskell-indent": "haskell-indent",
-        "mellow-theme": "mellow-theme",
         "nixpkgs": "nixpkgs"
       }
     },

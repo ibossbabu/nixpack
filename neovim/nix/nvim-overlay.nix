@@ -35,7 +35,7 @@
         p.ocamllex
         p.typescript
       ]);
-    mellow-nvim = buildVimPlugin inputs.mellow-theme "mellow-theme";
+    #mellow-nvim = buildVimPlugin inputs.mellow-theme "mellow-theme";
     haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
   in
     with vimPlugins; [
@@ -58,14 +58,12 @@
       #(opt fzf-lua)
       (opt oil-nvim)
       #(opt catppuccin-nvim)
-      (opt mellow-nvim)
+      #(opt mellow-nvim)
       (start haskell-indent)
       (opt base16-nvim)
-      #(opt mellifluous-nvim)
       (opt vim-tmux-navigator)
-      (opt guard-nvim)
-
-      #(opt conform-nvim)
+      #(opt guard-nvim)
+      (opt conform-nvim)
       treesitter
       #nvim-treesitter-textobjects
     ];
