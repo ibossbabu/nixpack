@@ -38,7 +38,7 @@
           text = ''
             export ZJSTATUS_PLUGIN_PATH="${pkgs.zjstatus}"
             export ROOM_PLUGIN_PATH="${pkgs.room}/lib/zellij/plugins/room.wasm"
-            exec zellij --config ${./config.kdl} --layout ${./layout_file.kdl} "$@"
+            exec zellij --config-dir ${./.} --config ${./config.kdl} --layout ${./layout_file.kdl} "$@"
           '';
         };
       in {

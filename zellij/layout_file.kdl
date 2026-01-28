@@ -54,4 +54,26 @@ layout {
             }
         }
     }
+        swap_tiled_layout name="cool" {
+        tab name="Opposite-Asymmetric" {
+            pane split_direction="vertical" {
+                pane name="Main Left" size="50%" 
+                pane split_direction="horizontal" {
+                    pane name="Top Right"
+                    pane name="Bottom Right" size="50%"
+                }
+            }
+        }
+    }
+        swap_tiled_layout name="cool" {
+        tab name="Opposite-Asymmetric" {
+            pane split_direction="horizontal" {
+                pane name="Main Left" size="50%" 
+                pane split_direction="vertical" {
+                    pane name="Top Right"
+                    pane name="Bottom Right" size="50%"
+            }
+        }
+    }
+  }
 }
