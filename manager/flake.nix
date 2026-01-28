@@ -17,11 +17,11 @@
       darwinPkgs = [
       ];
       commonPkgs = [
-       # "nixpkgs#home-manager"
+        # "nixpkgs#home-manager"
       ];
       targets = [
         "$HOME/nixpack/neovim"
-       "$HOME/nixpack/zellij"
+        "$HOME/nixpack/zellij"
         "$HOME/nixpack/home-manager/"
       ];
       install = pkgs.writeShellScript "install-nix-flakes" ''
