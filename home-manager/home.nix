@@ -24,7 +24,7 @@ in {
         doCheck = false;
       }))
       (getTool "/home/sak/nixpack/neovim")
-      (getTool "/home/sak/testpack/zellij")
+      (getTool "/home/sak/nixpack/zellij")
     ]
     ++ (with pkgs; [
       btop
@@ -55,6 +55,7 @@ in {
       unzip
       xclip
       xfce4-screenshooter
+      mlterm
     ]))
     ++ (pkgs.lib.optionals stdenv.isDarwin (with pkgs; [
       #iterm2
