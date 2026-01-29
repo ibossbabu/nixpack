@@ -35,7 +35,6 @@
         p.ocamllex
         p.typescript
       ]);
-    #mellow-nvim = buildVimPlugin inputs.mellow-theme "mellow-theme";
     haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
   in
     with vimPlugins; [

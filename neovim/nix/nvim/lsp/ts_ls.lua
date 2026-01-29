@@ -1,6 +1,6 @@
 return {
-  cmd = { "typescript-language-server", "--stdio" },
-  root_markers = { "tsconfig.json", "package.json", "bun.lock" },
+  cmd = { 'typescript-language-server', '--stdio' },
+  root_markers = { 'tsconfig.json', 'package.json', 'bun.lock', '.git' },
   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   handlers = {
     ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
