@@ -5,6 +5,7 @@
 }: let
   stdenv = pkgs.stdenv;
   getTool = path: (builtins.getFlake path).packages.${pkgs.stdenv.hostPlatform.system}.default;
+  nixpackPath = "${config.home.homeDirectory}/nixpack";
 in {
   imports = [
     ./programs.nix
@@ -23,8 +24,8 @@ in {
       (pkgs.gitu.overrideAttrs (oldAttrs: {
         doCheck = false;
       }))
-      (getTool "/home/sak/nixpack/neovim")
-      (getTool "/home/sak/nixpack/zellij")
+      (getTool "${nixpackPath}/neovim")
+      (getTool "${nixpackPath}/zellij")
     ]
     ++ (with pkgs; [
       btop

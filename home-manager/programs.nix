@@ -2,9 +2,9 @@
   pkgs,
   config,
   ...
-}: let 
-   stdenv = pkgs.stdenv;
-   in{
+}: let
+  stdenv = pkgs.stdenv;
+in {
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -20,6 +20,10 @@
       vim = "nvim";
       zj = "zellij";
       ls = "ls --color=auto";
+      hmu =
+        if stdenv.isDarwin
+        then "home-manager switch --flake .#\"sak@saks-Mac-Mini\" --impure"
+        else "home-manager switch --flake .#\"sak@gentoo\" --impure";
     };
     history = {
       size = 6666;
