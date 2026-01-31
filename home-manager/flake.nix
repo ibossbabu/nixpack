@@ -25,7 +25,7 @@
   in {
     homeConfigurations = {
       "sak@gentoo" = home-manager.lib.homeManagerConfiguration (mkHome "x86_64-linux");
-      #"sak@sak-book" = home-manager.lib.homeManagerConfiguration (mkHome "aarch64-darwin");
+      "sak@saks-Mac-Mini" = home-manager.lib.homeManagerConfiguration (mkHome "aarch64-darwin");
     };
   };
 }
