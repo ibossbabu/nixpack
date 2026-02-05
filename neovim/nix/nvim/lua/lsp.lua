@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "hls", "ocamllsp", "ts_ls" })
+vim.lsp.enable({ "lua_ls", "clangd", "nil_ls", "ocamllsp", "ts_ls", "rust_analyzer" })
 vim.lsp.config('*', { root_markers = { '.git' } })
 -- LSP Setup
 vim.api.nvim_create_autocmd('LspAttach', {

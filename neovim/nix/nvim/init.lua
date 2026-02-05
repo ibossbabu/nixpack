@@ -24,7 +24,7 @@ require("lze").load {
   { import = "plugins/mell" },
   {
     "custom-linters",
-    ft = { "typescript", "typescriptreact", "c", "cpp", "haskell" },
+    ft = { "typescript", "typescriptreact", "c", "cpp", "rust" },
     after = function()
       require("linters.lint").setup_all()
     end,
