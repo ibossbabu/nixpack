@@ -45,7 +45,7 @@ local function switch_impl_intf(bufnr, client)
 end
 return {
   cmd = { 'ocamllsp' },
-  filetypes = { 'ocaml', 'menhir', 'ocamlinterface', 'ocamllex', 'reason', 'dune' },
+  filetypes = { 'ocaml' },
   root_markers = { 'dune-project', 'dune-workspace', '*.opam', 'opam', '.git' },
   on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, 'LspOcamllspSwitchImplIntf', function()

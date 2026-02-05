@@ -34,6 +34,7 @@
         p.ocaml_interface
         p.ocamllex
         p.typescript
+        p.rust
       ]);
     #haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
   in
