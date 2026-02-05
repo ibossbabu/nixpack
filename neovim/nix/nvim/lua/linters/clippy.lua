@@ -32,7 +32,9 @@ return function()
               for _, span in ipairs(msg.spans or {}) do
                 if span.file_name == rel_fname and span.is_primary then
                   local message = msg.message
-                  if span.suggested_replacement then
+                  if span.suggested_replacement
+                      and span.suggested_replacement ~= vim.NIL
+                      and type(span.suggested_replacement) == "string" then
                     message = message .. "\nSuggestion: " .. span.suggested_replacement
                   end
 
