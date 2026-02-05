@@ -6,7 +6,8 @@ local function get_files()
     function(f) return vim.fn.isdirectory(f) == 0 and not vim.fn.fnamemodify(f, ':t'):match('^%.') end,
     vim.fn.glob(dir .. '/*', false, true)
   )
-  table.sort(files, function(a, b) return vim.fn.fnamemodify(a, ':t'):lower() < vim.fn.fnamemodify(b, ':t'):lower() end)
+  table.sort(files,
+    function(a, b) return vim.fn.fnamemodify(a, ':t'):lower() < vim.fn.fnamemodify(b, ':t'):lower() end)
   return files
 end
 
