@@ -1,6 +1,6 @@
 return {
   "conform.nvim",
-  ft = { "nix", "c", "ocaml", "ocamlinterface", "menhir", "ocamllex", "rust" },
+  ft = { "nix", "c", "ocaml", "ocamlinterface", "menhir", "ocamllex", "rust", "haskell" },
   after = function()
     require("conform").setup({
       formatters_by_ft = {
@@ -11,6 +11,7 @@ return {
         menhir = { "ocamlformat" },
         ocamllex = { "ocamlformat" },
         rust = { "rustfmt", lsp_format = "fallback" },
+        haskell = { "ormolu" },
       },
 
       formatters = {
@@ -25,6 +26,9 @@ return {
         },
         rustfmt = {
           args = { '--edition', '2024' },
+        },
+        ormolu = {
+          args = { "--color", "never", "--stdin-input-file", "$FILENAME" },
         },
       },
 

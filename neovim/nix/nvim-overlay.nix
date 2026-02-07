@@ -36,7 +36,7 @@
         p.typescript
         p.rust
       ]);
-    #haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
+    haskell-indent = buildVimPlugin inputs.haskell-indent "haskell-indent";
   in
     with vimPlugins; [
       # It's technically possible to provide lua configuration for
@@ -59,7 +59,7 @@
       (opt oil-nvim)
       #(opt catppuccin-nvim)
       #(opt mellow-nvim)
-      #(start haskell-indent)
+      (start haskell-indent)
       (opt base16-nvim)
       (opt vim-tmux-navigator)
       #(opt guard-nvim)
